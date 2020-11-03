@@ -5,6 +5,7 @@ export class NewTodoForm extends Component {
     super(props);
     this.state = { task: '' };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(e) {
     this.setState({
@@ -13,6 +14,8 @@ export class NewTodoForm extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
+    this.props.createTodo(this.state);
+    this.setState({ task: '' });
   }
   render() {
     return (
